@@ -1,0 +1,47 @@
+:root{
+    --primary: #007bff;
+    --secondary: #6c757d;
+}
+
+ul.navbar{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--secondary);
+    border: 1px solid white;
+    border-radius: 10px;
+    width: fit-content;
+    position: sticky;
+    top: 0;
+    
+}
+  
+ul.navbar > li{
+    float: left;
+    border-right: 1px solid #bbb;
+    align-self: center;
+}
+
+ul.navbar > li:last-child {
+    border-right: none;
+}
+
+ul.navbar > li > a{
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+ul.navbar > li > a:hover {
+    background-color: var(--secondary);
+}
+
+
+.active {
+    background-color: var(--primary);
+    pointer-events: none;
+}
+

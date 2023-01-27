@@ -1,0 +1,23 @@
+:root{
+  --spacing: 10px;
+  --primary: #007bff;
+  --secondary: #6c757d;
+}
+
+@media only screen and (max-width: 650px){
+  
+}
+
+*{
+  text-align: left;
+  color: white;
+  background-color: #bbb;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+  color: black;
+  font-size: 3em;
+  margin: 0%;
+}
+

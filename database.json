@@ -1,0 +1,5 @@
+[
+    [{"equipa1": "1"},{"equipa2": "4"},{"resultado": "2-7"},{"hora": "XX:XX XX/XX/XXXX"},{"decorrer": true}],
+    [{"equipa1": "2"},{"equipa2": "5"},{"resultado": "2-7"},{"hora": "09:59 26/01/2023"},{"decorrer": false}],
+    [{"equipa1": "3"},{"equipa2": "6"},{"resultado": "2-7"},{"hora": "09:55 22/01/2023"},{"decorrer": false}]
+]
