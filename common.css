@@ -16,8 +16,6 @@ button.redirect{
     right: var(--spacing);
 }
 
-
-
 ul.navbar{
     position: sticky;
     list-style-type: none;

@@ -1,6 +1,6 @@
 const main = document.querySelector("#main_div")
-const requestURL = "https://raw.githubusercontent.com/StanVard0202/Interturmas/master/database.json"
-//const requestURL = "/database.json"
+//const requestURL = "https://raw.githubusercontent.com/StanVard0202/Interturmas/master/database.json"
+const requestURL = "/database.json"
 
 const request = new Request(requestURL)
 
@@ -27,11 +27,7 @@ function BIG(jogos){
             if(min>90){
                 min = `90 + ${min-90}` 
             }
-            if(jogos[i][5].d == "m" || jogos[i][5].ip == "minutos"){
-                atuais += `<tr><td>${jogos[i][0].equipa1}</td><td>${jogos[i][2].resultado}</td><td>${jogos[i][1].equipa2}</td><td>${min}</td>`
-            }else{
-
-            }
+            //TODO saber se o intervalo fica sempre aos 45 min
             switch(jogos[i][5].d){
                 case "m":
                     atuais += `<tr><td>${jogos[i][0].equipa1}</td><td>${jogos[i][2].resultado}</td><td>${jogos[i][1].equipa2}</td><td>${min}</td>`
@@ -39,6 +35,16 @@ function BIG(jogos){
                 
                 case "minutos":
                     atuais += `<tr><td>${jogos[i][0].equipa1}</td><td>${jogos[i][2].resultado}</td><td>${jogos[i][1].equipa2}</td><td>${min}</td>`
+                    break;
+                case "i":
+                    atuais += `<tr><td>${jogos[i][0].equipa1}</td><td>${jogos[i][2].resultado}</td><td>${jogos[i][1].equipa2}</td><td>${"INTERVALO"}</td>`
+                    break;
+                
+                case "intervalo":
+                    atuais += `<tr><td>${jogos[i][0].equipa1}</td><td>${jogos[i][2].resultado}</td><td>${jogos[i][1].equipa2}</td><td>${"INTERVALO"}</td>`
+                    break;
+                default:
+                    atuais += `<tr><td>${jogos[i][0].equipa1}</td><td>${jogos[i][2].resultado}</td><td>${jogos[i][1].equipa2}</td><td>${"Unknown"}</td>`
                     break;
             }
             
