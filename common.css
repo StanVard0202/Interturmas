@@ -1,20 +1,34 @@
 :root{
     --primary: #007bff;
     --secondary: #6c757d;
+    --spacing: 15px;
 }
 
+button.redirect{
+    position: absolute;
+    color: white;
+    border: 1px solid var(--primary);
+    background-color: var(--secondary);
+    border-radius: 10%;
+    margin: 0%;
+    padding: 1vw;
+    top: var(--spacing);
+    right: var(--spacing);
+}
+
+
+
 ul.navbar{
+    position: sticky;
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: var(--secondary);
+    background-color: rgba(187, 187, 187, 0);
     border: 1px solid white;
     border-radius: 10px;
     width: fit-content;
-    position: sticky;
     top: 0;
-    
 }
   
 ul.navbar > li{
@@ -39,6 +53,10 @@ ul.navbar > li > a:hover {
     background-color: var(--secondary);
 }
 
+ul.navbar > li > a:not(:hover):not(.active){
+    opacity: .7;
+    
+}
 
 .active {
     background-color: var(--primary);

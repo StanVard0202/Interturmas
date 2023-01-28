@@ -1,38 +1,58 @@
 const main = document.querySelector("#main_div")
 const requestURL = "https://raw.githubusercontent.com/StanVard0202/Interturmas/master/database.json"
+//const requestURL = "/database.json"
 
 const request = new Request(requestURL)
 
-var d = new Date().getTime()
+window.addEventListener("load", h)
 
-window.addEventListener("load", function(){
+const d = new Date();
+
+setInterval(h, 1000)
+
+function h(){
     fetch(request).then((response) => response.json()).then((data) => BIG(data));
-})
+}
 
-atuais = []
-futuros = []
-passados = []
+handler = 0
+
+
 function BIG(jogos){
-    
+    atuais = []
+    futuros = []
+    passados = []
     for(var i=0; i < jogos.length; i++){
-        console.log(d)
-        console.log(date_proccessing(jogos[i][3].hora))
-        console.log(date_proccessing(jogos[i][3].hora) > d)
-
         if(jogos[i][4].decorrer == true){
-            atuais += `<tr><td>${jogos[i][0].equipa1}</td><td>${jogos[i][2].resultado}</td><td>${jogos[i][1].equipa2}</td>`
+            var min = ((d.getHours() * 60) + d.getMinutes()) - ((date_proccessing(jogos[i][3].hora).getHours() * 60) + (date_proccessing(jogos[i][3].hora).getMinutes()))
+            if(min>90){
+                min = `90 + ${min-90}` 
+            }
+            if(jogos[i][5].d == "m" || jogos[i][5].ip == "minutos"){
+                atuais += `<tr><td>${jogos[i][0].equipa1}</td><td>${jogos[i][2].resultado}</td><td>${jogos[i][1].equipa2}</td><td>${min}</td>`
+            }else{
 
-        }else if(date_proccessing(jogos[i][3].hora) > d){
-            futuros += `<tr><td>${jogos[i][0].equipa1}</td><td>${jogos[i][1].equipa2}</td><td>${jogos[i][3].hora}</td>` //FIXME jogos futuros
+            }
+            switch(jogos[i][5].d){
+                case "m":
+                    atuais += `<tr><td>${jogos[i][0].equipa1}</td><td>${jogos[i][2].resultado}</td><td>${jogos[i][1].equipa2}</td><td>${min}</td>`
+                    break;
+                
+                case "minutos":
+                    atuais += `<tr><td>${jogos[i][0].equipa1}</td><td>${jogos[i][2].resultado}</td><td>${jogos[i][1].equipa2}</td><td>${min}</td>`
+                    break;
+            }
+            
 
+        }else if(date_proccessing(jogos[i][3].hora).getTime() > d.getTime()){
+            futuros += `<tr><td>${jogos[i][0].equipa1}</td><td>${jogos[i][1].equipa2}</td><td>${jogos[i][3].hora}</td>`
         }else{
             passados += `<tr><td>${jogos[i][0].equipa1}</td><td>${jogos[i][2].resultado}</td><td>${jogos[i][1].equipa2}</td><td>${jogos[i][3].hora}</td>`
         }
     }
 
     var html = ""
-    html += "<h2>Jogos A Decorrer</h2>"
-    html += "<table><thead><tr><td>Equipa 1</td><td>Resultado</td><td>Equipa 2</td></tr></thead>"
+    html += "<h2 class='decorrer'>Jogos A Decorrer</h2><button onclick='back()' class='redirect'>Retornar</button>"
+    html += "<table><thead><tr><td>Equipa 1</td><td>Resultado</td><td>Equipa 2</td><td>Minuto</td></tr></thead>"
     for(var i = 0 ; i < atuais.length; i++){
         html += atuais[i]
     }
@@ -49,7 +69,6 @@ function BIG(jogos){
         html += futuros[i]
     }
     html += "</table>"
-    //console.log(html)
     main.innerHTML = html
 }
 
@@ -61,7 +80,11 @@ function date_proccessing(date="XX:XX XX/XX/XXXX"){
     day = dt[1].split("/")[0]
     month = dt[1].split("/")[1] - 1
     year = dt[1].split("/")[2]
-    const new_date = new Date(year, month, day, hours, minutes).getTime()
+    const new_date = new Date(year, month, day, hours, minutes)
     return new_date
+}
+
+function back(){
+    window.location.href = "/"
 }
 
