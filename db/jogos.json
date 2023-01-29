@@ -1,5 +1,5 @@
 [
-    [{"equipa1": "1"},{"equipa2": "4"},{"resultado": "2-7"},{"hora": "21:45 26/01/2027"},{"decorrer": true},{"d":"m"}],
+    [{"equipa1": "1"},{"equipa2": "4"},{"resultado": "2-7"},{"hora": "17:45 26/01/2020"},{"decorrer": true},{"d":"m"}],
     [{"equipa1": "2"},{"equipa2": "5"},{"resultado": "2-7"},{"hora": "09:59 26/01/2027"},{"decorrer": false},{"d":"m"}],
     [{"equipa1": "2"},{"equipa2": "5"},{"resultado": "2-7"},{"hora": "09:59 26/01/2027"},{"decorrer": false},{"d":"m"}],
     [{"equipa1": "2"},{"equipa2": "5"},{"resultado": "2-7"},{"hora": "09:59 26/01/2027"},{"decorrer": false},{"d":"m"}],
