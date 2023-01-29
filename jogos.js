@@ -1,6 +1,6 @@
 const main = document.querySelector("#main_div")
-//const requestURL = "https://raw.githubusercontent.com/StanVard0202/Interturmas/master/database.json"
-const requestURL = "/database.json"
+const requestURL = "https://raw.githubusercontent.com/StanVard0202/Interturmas/master/db/jogos.json"
+//const requestURL = "./db/jogos.json"
 
 const request = new Request(requestURL)
 
